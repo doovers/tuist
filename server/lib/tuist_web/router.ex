@@ -217,6 +217,11 @@ defmodule TuistWeb.Router do
              TuistWeb.Marketing.MarketingQALive,
              metadata: %{type: :marketing},
              private: private
+
+        live Path.join(locale_path_prefix, "/cache"),
+             TuistWeb.Marketing.MarketingCacheLive,
+             metadata: %{type: :marketing},
+             private: private
       end
 
       get locale_path_prefix, MarketingController, :home,
