@@ -32,4 +32,16 @@ defmodule Tuist.Cache do
 
     IngestRepo.insert_all(CASEvent, entries)
   end
+
+  def today_artifacts_count do
+    today = Date.to_string(Date.utc_today())
+
+    case IngestRepo.query(
+           "SELECT sum(event_count) FROM cas_events_daily_stats WHERE date = {date:Date}",
+           %{"date" => today}
+         ) do
+      {:ok, %{rows: [[count]]}} when not is_nil(count) -> count
+      _ -> 0
+    end
+  end
 end

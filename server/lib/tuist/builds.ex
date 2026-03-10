@@ -19,6 +19,12 @@ defmodule Tuist.Builds do
 
   def valid_ci_providers, do: ["github", "gitlab", "bitrise", "circleci", "buildkite", "codemagic"]
 
+  def total_count do
+    Build
+    |> from(select: count())
+    |> ClickHouseRepo.one() || 0
+  end
+
   def get_build(id) do
     Build
     |> from(where: [id: ^id], order_by: [desc: :inserted_at], limit: 1)

@@ -40,6 +40,8 @@ defmodule TuistWeb.Marketing.FeaturePage do
            dgettext("marketing", unquote(description))
          )}
       end
+
+      defoverridable mount: 3, handle_params: 3
     end
   end
 end

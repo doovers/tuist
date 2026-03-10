@@ -69,9 +69,11 @@
       <div data-part="content">
         <div data-part="stat">
           <span data-part="label">
-            {dgettext("marketing", "Hours saved by detecting flaky tests")}
+            {dgettext("marketing", "Flaky tests detected")}
           </span>
-          <span data-part="value">200,000 hrs</span>
+          <span data-part="value">
+            {Number.Delimit.number_to_delimited(@flaky_tests_detected, precision: 0)}
+          </span>
         </div>
         <div data-part="testimonial">
           <p data-part="quote">

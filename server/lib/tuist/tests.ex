@@ -42,6 +42,24 @@ defmodule Tuist.Tests do
 
   def valid_ci_providers, do: ["github", "gitlab", "bitrise", "circleci", "buildkite", "codemagic"]
 
+  def total_test_run_count do
+    Test
+    |> from(select: count())
+    |> ClickHouseRepo.one() || 0
+  end
+
+  def total_test_case_run_count do
+    TestCaseRun
+    |> from(select: count())
+    |> ClickHouseRepo.one() || 0
+  end
+
+  def flaky_test_case_run_count do
+    TestCaseRun
+    |> from(where: [is_flaky: true], select: count())
+    |> ClickHouseRepo.one() || 0
+  end
+
   def project_test_schemes(%Project{} = project) do
     thirty_days_ago = DateTime.add(DateTime.utc_now(), -30, :day)
 

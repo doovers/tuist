@@ -129,6 +129,7 @@ defmodule Tuist.Application do
         {Guardian.DB.Sweeper, [interval: 60 * 60 * 1000]},
         Anubis.Server.Registry,
         {Tuist.MCP.Server, transport: {:streamable_http, start: true}},
+        Tuist.Marketing.Stats,
         TuistWeb.Telemetry,
         TuistWeb.Endpoint
       ]

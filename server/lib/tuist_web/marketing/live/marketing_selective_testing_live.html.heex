@@ -80,7 +80,9 @@
       <div data-part="content">
         <div data-part="stat">
           <span data-part="label">{dgettext("marketing", "Number of test runs")}</span>
-          <span data-part="value">200,000</span>
+          <span data-part="value">
+            {Number.Delimit.number_to_delimited(@total_test_runs, precision: 0)}
+          </span>
         </div>
         <div data-part="testimonial">
           <p data-part="quote">
