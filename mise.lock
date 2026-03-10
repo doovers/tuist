@@ -47,5 +47,5 @@ version = "0.59.1"
 backend = "aqua:realm/SwiftLint"
 
 [tools.tuist]
-version = "4.155.4"
+version = "4.155.5"
 backend = "aqua:tuist/tuist"
