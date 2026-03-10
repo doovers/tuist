@@ -25,7 +25,7 @@ defmodule TuistWeb.Marketing.MarketingSelectiveTestingLive do
      |> assign(:head_twitter_card, "summary_large_image")
      |> assign(
        :head_image,
-       Tuist.Environment.app_url(path: "/marketing/images/og/home.jpg")
+       Tuist.Environment.app_url(path: "/marketing/images/og/selective-testing.jpg")
      )
      |> assign(
        :head_description,
